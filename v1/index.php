@@ -26,13 +26,12 @@ require_once 'DbHandler.php';
 
 // url - /DownloadRptByFund
 $app->get('/newArticle', function() use ($app) {
-
       $response = array();
       $db = new DbHandler();
       $result = $db->newArticle();
       if ($result != NULL) {
         $response["res_code"] = "00";
-        $response['res_text'] = "";
+        $response['res_text'] = "แสดงข้อมูลสำเร็จ";
         $response["res_result"] = $result;
       } else {
         $response['res_code'] = "01";
@@ -43,7 +42,6 @@ $app->get('/newArticle', function() use ($app) {
 
 
 $app->get('/home', function() use ($app) {
-
       $Lang = htmlspecialchars($app->request->post('Lang'), ENT_QUOTES);
       $response = array();
       $db = new DbHandler();
